@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" ng-app="Offices"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Offices</title>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+
+    <script src="node_modules\angular\angular.min.js"></script>
+    <script src="node_modules\angular-ui-router\release\angular-ui-router.min.js"></script>
+    <script src="scripts\app.js"></script>
+</head>
+<body  ng-controller="officeListCtrl">
+
+<div class="wrapper">
+    <header class="header" id="header">
+        <div class="container">
+            <div class="row flexRow">
+                <div class="col-md-2 header__logo"><a href="index.html">geekhub</a></div>
+                <div class="col-md-4 header__profile-editor">Profile Editor</div>
+                <ul class="col-md-4 col-md-offset-2 flexRow header__menu">
+                    <li class="header__menu-item"><a href="#">Contact</a></li>
+                    <li class="header__menu-item"><a href="#">FAQs</a></li>
+                    <li class="header__menu-item"><a href="#">Save and Exit</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row flexRow">
+            <sidebar class="sidebar col-md-3">
+                <div class=" row flexRow sidebar__progress">
+                    <img src="images/8.svg" alt="progress">
+                </div>
+                <ul class="sidebar__menu row">
+                    <li class="sidebar__menu-item">
+                        <a href="#">company info</a>
+                        <ul class="sidebar__sub-menu">
+                            <li class="sidebar__sub-menu-item done"><a href="#">basic info</a></li>
+                            <li class="sidebar__sub-menu-item process"><a href="#">offices</a></li>
+                            <li class="sidebar__sub-menu-item"><a href="#">competitors</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar__menu-item">
+                        <a href="#">my firm</a>
+                    </li>
+                    <li class="sidebar__menu-item">
+                        <a href="#">deals</a>
+                    </li>
+                    <li class="sidebar__menu-item">
+                        <a href="#">financial</a>
+                    </li>
+                </ul>
+            </sidebar>
+            <main class="content col-md-9">
+                <div class="content__header row">
+                    <div class="flexRow">
+                        <h1 class="content__header-title col-md-3">offices</h1>
+                        <h3 class="content__header-sub_title col-md-9">
+                            company info
+                        </h3>
+                    </div>
+                    <div class="header__desc col-md-12">
+                        Updating your location and contact information helps you appeal to regional investors and service providers.
+                    </div>
+                </div>
+
+                <div class="btn__wrapper">
+                    <button class="btn btn-default" ng-click="showEditOffice = !showEditOffice">Add new office</button>
+                </div>
+
+                <div class="offices__list-item col-md-12" ng-show="showEditOffice">
+                    <div class="formFieldWrapper col-md-9 row">
+                        <div class="leftBlock col-md-6">
+                            <div>
+                                <label>*Country</label>
+                                <input type="text" name="" class="form-control">
+                            </div>
+                            <div>
+                                <label>*State/Province:</label>
+                                <input type="text" name="" class="form-control">
+                            </div>
+                            <div>
+                                <label>*Postal Code:</label>
+                                <input type="text" name="" class="form-control">
+                            </div>
+                            <div>
+                                <label>*City:</label>
+                                <input type="text" name="" class="form-control">
+                            </div>
+                            <div>
+                                <label>*Street Address:</label>
+                                <input type="text" name="" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="rightBlock col-md-6">
+                            <div>
+                                <label>Address 2:</label>
+                                <input type="text" name="" class="form-control">
+                            </div>
+                            <div>
+                                <label>Phone:</label>
+                                <input type="text" name="" class="form-control">
+                            </div>
+                            <div>
+                                <label>Fax:</label>
+                                <input type="text" name="" class="form-control">
+                            </div>
+                            <div>
+                                <label>Email:</label>
+                                <input type="email" name="" class="form-control">
+                            </div>
+                            <div>
+                                <label>Office Type:</label>
+                                <input type="text" name="" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonWrapper col-md-3 row">
+                        <div class="offices__item-cancel_btn col-md-6">
+                            <button class="btn btn-default">Cancel</button>
+                        </div>
+                        <div class="offices__item-save_btn col-md-6">
+                            <button class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <ul class="offices__list row">
+                    <li class="offices__list-item col-md-12" ng-repeat="office in offices">
+                        <div class="offices__item-title col-md-1">address</div>
+                        <div class="offices__item-address primary col-md-3">
+                            {{offices.primary_hq | checkmark}}
+                            {{office.adress}}
+                        </div>
+                        <div class="offices__item-contact col-md-4">
+                            <p><span>Phone:</span> {{office.phone}}</p>
+                            <p><span>Email:</span> {{office.email}}</p>
+                            <p><span>Fax:</span> {{office.fax}}</p>
+                        </div>
+                        <div class="offices__item-remove_btn col-md-2">
+                            <button class="btn btn-default">remove</button>
+                        </div>
+                        <div class="offices__item-edit_btn col-md-2">
+                            <button class="btn btn-primary">edit</button>
+                        </div>
+                    </li>
+
+                </ul>
+                <div class="content__footer row flexRow">
+                    <div class="col-md-2">
+                        <button class="btn btn-default">Back</button>
+                    </div>
+                    <div class="col-md-4">
+                        <p><button>+</button>Provide additional comments</p>
+                    </div>
+                    <div class="col-md-3 col-md-offset-3">
+                        <button class="btn btn-default">Skip this step</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <footer class="footer" id="footer"></footer>
+</div>
+</body>
+</html>

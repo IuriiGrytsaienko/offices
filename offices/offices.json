@@ -1,0 +1,19 @@
+[
+  {
+    "primary_hq": true,
+    "adress": "One Microsoft Way Redmond, Washington 98052 United States",
+    "phone": "+1 (425) 882-8080",
+    "email": "msft@microsoft.com"
+  },
+  {
+    "primary_hq": false,
+    "adress": "Thames Valley Park Reading Berkshire, England RG6 1WG United Kingdom",
+    "phone": "+44 (0)34 4800 2400",
+    "fax": "+44 (0)87 0602 0100"
+  },
+  {
+    "primary_hq": false,
+    "adress": "PO Box 91 North Ryde Sydney, New South Wales 1670 Australia",
+    "phone": "+61 (0)2 9870 2200"
+  }
+]
